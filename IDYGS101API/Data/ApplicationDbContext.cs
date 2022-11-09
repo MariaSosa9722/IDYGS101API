@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Modelo;
+using Microsoft.EntityFrameworkCore;
 
 namespace IDYGS101API.Data
 {
@@ -8,6 +9,5 @@ namespace IDYGS101API.Data
 
         public DbSet<Personaje> personajes { get; set; }
         public DbSet<Genero> generos { get; set; }
-
     }
 }

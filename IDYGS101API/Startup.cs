@@ -1,7 +1,9 @@
+using IDYGS101API.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +34,8 @@ namespace IDYGS101API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "IDYGS101API", Version = "v1" });
             });
+
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
