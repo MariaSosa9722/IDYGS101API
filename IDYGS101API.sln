@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDYGS101API", "IDYGS101API\IDYGS101API.csproj", "{59E0B37B-05D0-4A18-A390-F81CB02AB1F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{994428DE-7395-4B25-97D0-626A8E5420A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59E0B37B-05D0-4A18-A390-F81CB02AB1F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E0B37B-05D0-4A18-A390-F81CB02AB1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E0B37B-05D0-4A18-A390-F81CB02AB1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E0B37B-05D0-4A18-A390-F81CB02AB1F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{994428DE-7395-4B25-97D0-626A8E5420A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994428DE-7395-4B25-97D0-626A8E5420A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994428DE-7395-4B25-97D0-626A8E5420A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994428DE-7395-4B25-97D0-626A8E5420A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A555761-8EF0-4ADA-B386-331635E928F0}
+	EndGlobalSection
+EndGlobal
