@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Domain.Modelo;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace IDYGS101API.Data
 {
