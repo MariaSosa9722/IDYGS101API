@@ -1,6 +1,7 @@
 ﻿using Domain.Modelo;
 using IDYGS101API.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,12 +34,51 @@ namespace IDYGS101API.Controllers
             return new Response<PersonajeResponse>(pers, "Listo xd");
         }
         [HttpGet]
+        public async Task<IActionResult> GetAllPersonajes()
+        {
+            List<Personaje> personajes = await dbContext.personajes.ToListAsync();
+            if (personajes.Count < 1) return NoContent();
+            else return Ok(personajes);
+        }
+        [HttpGet]
         [Route("{PkPersonaje}")]
         public async Task<IActionResult> BuscarPersonaje([FromRoute] int PkPersonaje)
         {
             var personaje = dbContext.personajes.Where(q => q.PkPersonaje == PkPersonaje).FirstOrDefault();
+            if (personaje == null) return NoContent();
+            else return Ok(personaje);
+        }
+        [HttpPut]
+        [Route("{PkPersonaje}")]
+        public async Task<IActionResult> ModificarPersonaje([FromRoute] int PkPersonaje, [FromBody] PersonajeResponse pers)
+        {
+            var personaje = dbContext.personajes.Where(q => q.PkPersonaje == PkPersonaje).FirstOrDefault();
+            if (personaje == null || String.IsNullOrEmpty(pers.Color) || String.IsNullOrEmpty(pers.Nombre) 
+                || String.IsNullOrEmpty(pers.Poder) || pers.FkGenero <= 0) return NoContent();
+            else
+            {
+                personaje.Color = pers.Color;
+                personaje.Nombre = pers.Nombre;
+                personaje.Poder = pers.Poder;
+                personaje.FkGenero = pers.FkGenero;
+                await dbContext.SaveChangesAsync();
 
-            return Ok(personaje);
+                return Ok(personaje);
+            } 
+        }
+        [HttpDelete]
+        [Route("{PkPersonaje}")]
+        public async Task<IActionResult> BorrarPersonaje([FromRoute] int PkPersonaje)
+        {
+            var personaje = dbContext.personajes.Where(q => q.PkPersonaje == PkPersonaje).FirstOrDefault();
+            if (personaje == null) return NoContent();
+            else
+            {
+                dbContext.personajes.Remove(personaje);
+                await dbContext.SaveChangesAsync();
+
+                return Ok("Borrado con exito el personaje de ID: " + PkPersonaje);
+            }
         }
     }
 }
