@@ -21,4 +21,11 @@ namespace Domain.Modelo
 
         public Genero genero { get; set; }
     }
+    public class PersonajeResponse
+    {
+        public string Nombre { get; set; }
+        public string Color { get; set; }
+        public string Poder { get; set; }
+        public int FkGenero { get; set; }
+    }
 }
